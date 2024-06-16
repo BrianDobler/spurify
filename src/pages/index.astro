@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { playlists } from "../libreria/datos";
+import PlaylistItemCard from "../components/PlaylistItemCard.astro";
+import PlaylistMasEscuchados from "../components/PlaylistMasEscuchados.astro";
+---
+
+<Layout title="Spurify">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-yellow-900"
+  >
+    <div class="relative z-10 px-6 pt-10">
+      <h1 class="text-white text-4xl font-bold">Buenos días!</h1>
+<div class="flex flex-wrap mt-4 gap-4 pb-6">
+        {
+          playlists.map((playlists) => (
+            <PlaylistMasEscuchados playlist={playlists} />
+          ))
+        }
+      </div>
+      <h3 class="text-white text-2xl font-bold">Lo mejor de cada artista</h3>
+
+      <div class="flex flex-wrap mt-6 gap-4">
+        {
+          playlists.map((playlists) => (
+            <PlaylistItemCard playlist={playlists} />
+          ))
+        }
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/90">
+    </div>
+  </div>
+</Layout>
+
+<style></style>

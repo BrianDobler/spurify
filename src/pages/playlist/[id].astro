@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { allPlaylists, songs } from "../../libreria/datos";
+import PlaylistItemCard from "../../components/PlaylistItemCard.astro";
+import { setOriginalNode } from "typescript";
+
+const { id } = Astro.params;
+
+const playlist = allPlaylists.find((playlist) => playlist.id == id);
+const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
+---
+
+<Layout title="Spurify">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-yellow-900"
+    transition:name=`playlist ${id} box` 
+  >
+    <div class="relative z-10 px-6 pt-10">
+     
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/90"
+      >
+      </div>
+    </div>
+  </div>
+
+  <style></style>
+</Layout>

@@ -1,0 +1,38 @@
+---
+import SideMenuItem from "./SideMenuItem.astro";
+import SideMenuCard from "./SideMenuCard.astro";
+import IconoBiblioteca from "../iconos/Biblioteca.astro";
+import IconoInicio from "../iconos/Inicio.astro";
+import IconoBuscar from "../iconos/Buscador.astro";
+
+import { playlists } from "../libreria/datos";
+---
+
+<nav class="flex flex-col flex-1 gap-2">
+  <div class="bg-zinc-900 rounded-lg p-2">
+    <ul>
+      <SideMenuItem href="/">
+        <IconoInicio />
+        Inicio
+      </SideMenuItem>
+
+      <SideMenuItem href="/#">
+        <IconoBuscar />
+        Buscar
+      </SideMenuItem>
+
+    </ul>
+  </div>
+
+  <div class="bg-zinc-900 rounded-lg p-2 flex-1">
+    <ul>
+      <SideMenuItem href="/#">
+        <IconoBiblioteca />
+        Tu Biblioteca
+      </SideMenuItem>
+    </ul>
+    {
+        playlists.map(playlist => <SideMenuCard playlist={playlist} />)
+    }
+  </div>
+</nav>

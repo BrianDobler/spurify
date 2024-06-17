@@ -13,11 +13,40 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
 <Layout title="Spurify">
   <div
     id="playlist-container"
-    class="relative transition-all duration-1000 bg-yellow-900"
-    transition:name=`playlist ${id} box` 
+    class="relative flex flex-col h-full overflow-x-hidden bg-zinc-900"
+    transition:name=`playlist ${id} box`
   >
+    <header class="flex flex-col gap-8 px-6 text-white">
+      <picture class="h-52 w-52 flex-none">
+        <img
+          src={playlist?.cover}
+          alt={`Cover of ${playlist?.title}`}
+          class="objet-cover w-full h-full rounded-md"
+          transition:name=`playlsit ${playlist?.id} image`
+        />
+      </picture>
+
+      <div class="flex flex-col justify-between">
+        <h2 class="flex flex-1 items-end">Playlist</h2>
+        <div>
+          <h1 class="title-clamp font-bold block">
+            {playlist?.title}
+            <span transition:name=`playlist ${playlist?.id} title`></span>
+          </h1>
+        </div>
+        <div class="flex-1 flex items-end">
+          <div class="text-sm text-gray-300 font-normal">
+            <div transition:name=`playlist ${id} artists`>
+              <span>{playlist?.artists.join(",")}</span>
+            </div>
+            <p class="mt-1">
+              <span class="text-white">29 Canciones</span>,2h 13 min
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="relative z-10 px-6 pt-10">
-     
       <div
         class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/90"
       >

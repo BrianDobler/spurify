@@ -30,7 +30,7 @@ const { title } = Astro.props;
       </main>
 
       <footer class="[grid-area:player] min-h[100px]">
-        <BarraDeReproductor />
+        <BarraDeReproductor client:load transition:name="reproductor-media" transition:persist/>
       </footer>
     </div>
     <style>

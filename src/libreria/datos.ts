@@ -62,7 +62,7 @@ export const playlists: Playlist[] = [
     color: colores.orange,
     cover:
       "https://i.scdn.co/image/ab67706f0000000263cf2197900a244ec92524fe",
-    artists: ["Andrés Calamaro", " Gustavo Ceratti","Andrés Ciro Martinez"],
+    artists: ["Andrés Calamaro", " Gustavo Ceratti"," Andrés Ciro Martinez"],
   },
   {
     id: '7',
@@ -85,11 +85,11 @@ export const playlists: Playlist[] = [
   {
     id: '9',
     albumId: 9,
-    title: "Internacionales 80 y 90",
+    title: "Internacional 80 y 90",
     color: colores.orange,
     cover:
       "https://i.scdn.co/image/ab67616d00001e02e8dd4db47e7177c63b0b7d53",
-    artists: ["Turf", "Abel Pintos"],
+    artists: ["Creedence", " Freddie Mercury"],
   },
   {
     id: '10',
@@ -98,7 +98,7 @@ export const playlists: Playlist[] = [
     color: colores.orange,
     cover:
       "https://i.scdn.co/image/ab67706f000000022e698f366f81954780ed7ac4",
-    artists: ["Turf", "Abel Pintos"],
+    artists: ["Turf", " Abel Pintos"],
   },
   {
     id: '11',

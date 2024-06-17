@@ -1,19 +1,24 @@
+import React from 'react';
 
 function Saludo() {
   const tiempoActual = new Date();
   const horaActual = tiempoActual.getHours();
 
-  let saludo = "";
+  let saludo = '';
 
-  if (horaActual <= 12) {
-    saludo = "Buenos Días! 🌞";
+  if (horaActual < 12) {
+    saludo = '¡Buenos Días! 🌞';
   } else if (horaActual < 18) {
-    saludo = "Buenas Tardes! 🌇";
+    saludo = '¡Buenas Tardes! 🌇';
   } else {
-    saludo = "Buenas Noches! 🌙";
+    saludo = '¡Buenas Noches! 🌙';
   }
 
-  return (<h1 class="text-white text-4xl font-bold">{saludo}</h1>);
+  return (
+    <h1 className="text-white text-4xl font-bold">
+      {saludo}
+    </h1>
+  );
 }
 
 export default Saludo;

@@ -17,7 +17,7 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
     transition:name=`playlist ${id} box`
   >
     <header class="flex flex-row gap-8 px-6 text-white mt-12">
-      <picture class="h-32 w-32 flex-none mt-10">
+      <picture class="h-32 w-32 flex-none mt-11">
         <img
           src={playlist?.cover}
           alt={`Cover of ${playlist?.title}`}
@@ -27,14 +27,14 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
       </picture>
 
       <div class="flex flex-col justify-between">
-        <h2 class="flex flex-1 items-end mb-6">Lista</h2>
+        <h2 class="flex flex-1  items-end mb-6 p-1">Lista</h2>
         <div>
           <h1 class="title-clamp text-7xl font-bold block">
             {playlist?.title}
             <span transition:name=`playlist ${playlist?.id} title`></span>
           </h1>
         </div>
-        <div class="flex-1 flex items-end">
+        <div class="flex-1 flex items-end p-1">
           <div class="text-sm text-gray-300 font-normal">
             <div transition:name=`playlist ${playlist?.id} artists`>
               <span>{playlist?.artists.join(",")}</span>

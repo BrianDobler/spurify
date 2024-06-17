@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { playlists } from "../libreria/datos";
 import PlaylistItemCard from "../components/PlaylistItemCard.astro";
 import PlaylistMasEscuchados from "../components/PlaylistMasEscuchados.astro";
+import Saludo from "../components/MensajeSaludo.jsx";
 ---
 
 <Layout title="Spurify">
@@ -11,7 +12,7 @@ import PlaylistMasEscuchados from "../components/PlaylistMasEscuchados.astro";
     class="relative transition-all duration-1000 bg-yellow-900"
   >
     <div class="relative z-10 px-6 pt-10">
-      <h1 class="text-white text-4xl font-bold">Buenos días!</h1>
+      <Saludo />
 
       <div class="flex flex-wrap mt-4 gap-4 pb-6">
         {

@@ -17,7 +17,7 @@ export const playlists: Playlist[] = [
     color: colores.yellow,
     cover:
       "https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO1BjbKA-default.jpg",
-    artists: ["Leo Mattioli 🌹"],
+    artists: ["Leo Mattioli 🌹"," Los grandes éxitos del León Santafesino."],
   },
   {
     id: '2',

@@ -10,7 +10,7 @@ export function BotonPlayCard({ id }) {
     setMusicaActual 
     } = usePlayerStore((state) => state);
 
-  const isPlayingPlaylsit = isPlaying && musicaActual?.playlist.id == id
+  const isPlayingPlaylist = isPlaying && musicaActual?.playlist.id == id
 
   const handleClick = () => {
     
@@ -25,6 +25,7 @@ export function BotonPlayCard({ id }) {
             const { songs, playlist } = data 
             setIsPlaying(true)
             setMusicaActual({ songs, playlist,song: songs[0] })
+            console.log({ songs, playlist })
         })
     }
     
@@ -36,7 +37,8 @@ export function BotonPlayCard({ id }) {
       onClick={handleClick}
       className="card-play-button rounded-full bg-green-500 p-4"
     >
-      {isPlayingPlaylsit ? <Pausa /> : <Play />}
+      {isPlayingPlaylist ? <Pausa /> : <Play />}
     </button>
   );
 }
+export default BotonPlayCard

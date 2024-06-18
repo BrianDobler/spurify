@@ -150,11 +150,11 @@ export const songs: Song[] = [
   {
     "id": 1,
     "albumId": 1,
-    "title": "Moonlit Walk",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/products/VINYL_MORNING_COFFEE_4-min.png?v=1680526353`,
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "3:12"
+    "title": "Conmigo te gusto",
+    "image": `https://i.scdn.co/image/ab67616d00001e0286e34d8695fa40e9eff493b5`,
+    "artists": ["Leo Mattiolli"],
+    "album": "Pechos Calientes",
+    "duration": "3:05"
   },
   {
     "id": 2,
@@ -240,11 +240,11 @@ export const songs: Song[] = [
   {
     "id": 1,
     "albumId": 3,
-    "title": "Lunar",
-    "image": `https://f4.bcbits.com/img/a1435058381_65.jpg`,
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "3:40"
+    "title": "Tu Foto ft Valentino Merlo",
+    "image": `https://i.scdn.co/image/ab67616d00004851785da791bbcf68e43accedb3`,
+    "artists": ["Q'Lokura"," Valentino Merlo"],
+    "album": "Cuarteo 2024",
+    "duration": "3:00"
   },
   {
     "id": 2,
@@ -285,11 +285,11 @@ export const songs: Song[] = [
   {
     "id": 1,
     "albumId": 4,
-    "title": "Lunar",
-    "image": "https://f4.bcbits.com/img/a1962013209_16.jpg",
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "3:40"
+    "title": "GTA.mp3",
+    "image": "https://i.scdn.co/image/ab67616d00004851bfb94590c914538b193f6931",
+    "artists": ["Emilia Mernes"],
+    "album": "mp3",
+    "duration": "2:40"
   },
   {
     "id": 2,

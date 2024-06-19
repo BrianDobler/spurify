@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { usePlayerStore } from "../store/reproductorStore";
+import { Slider } from "./Slider";
 
 export const Pausa = () => (
   <svg
@@ -27,7 +28,7 @@ export const Play = () => (
   </svg>
 );
 
-const MusicaActual = ({ image, title }) => {
+const MusicaActual = ({ image, title, artists }) => {
   return (
     <div
       className={`
@@ -37,7 +38,10 @@ const MusicaActual = ({ image, title }) => {
       <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflows-hidden">
         <img src={image} alt={title} />
       </picture>
-      <h3 className="font-bold block"> </h3>
+      <div className="flex flex-col">
+        <h3 className="font-semi text-sm block">{title}</h3>
+        <span className="text-xs opacity-80">{artists?.join(", ")}</span>
+      </div>
     </div>
   );
 };
@@ -46,7 +50,8 @@ export function BarraDeReproductor() {
   const { musicaActual, isPlaying, setIsPlaying } = usePlayerStore(
     (state) => state
   );
-  const audioRef = useRef(null);
+  const audioRef = useRef();
+  const volumeRef = useRef();
 
   useEffect(() => {
     if (audioRef.current) {
@@ -60,6 +65,7 @@ export function BarraDeReproductor() {
       const src = `/musica/${playlist?.id}/0${song.id}.mp3`;
       if (audioRef.current) {
         audioRef.current.src = src;
+        audioRef.current.volume = volumeRef.current;
         audioRef.current.play();
       }
     }
@@ -72,7 +78,7 @@ export function BarraDeReproductor() {
   return (
     <div className="flex flex-row justify-between w-full px-4 z-50">
       <div>
-        <MusicaActual { ...musicaActual.song} />
+        <MusicaActual {...musicaActual.song} />
       </div>
 
       <div className="grid place-content-center gap-4 flex-1">
@@ -80,11 +86,24 @@ export function BarraDeReproductor() {
           <button className="bg-white rounded-full p-2" onClick={handleClick}>
             {isPlaying ? <Pausa /> : <Play />}
           </button>
+          <audio ref={audioRef} />
         </div>
       </div>
 
-      <div className="grid place-content-center"></div>
-      <audio ref={audioRef} />
+      <div className="grid place-content-center">
+        <Slider
+          defaultValue={[100]}
+          max={100}
+          min={0}
+          className="w-[95px]"
+          onValueChange={(value) => {
+            const [newVolume] = value;
+            const volumeValue = newVolume / 100;
+            volumeRef.current = volumeValue;
+            audioRef.current.volume = volumeValue;
+          }}
+        />
+      </div>
     </div>
   );
 }

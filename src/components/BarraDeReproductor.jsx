@@ -91,9 +91,10 @@ const MusicaActual = ({ image, title, artists }) => {
 };
 
 const VolumeControl = () => {
+  
   const volume = usePlayerStore((state) => state.volume);
   const setVolume = usePlayerStore((state) => state.setVolume);
-
+  const previousVolumeRef = useRef(volume)
   return (
     <div className="flex justify-center  gap-x-2 text-white">
       {volume < 0.1 ? <VolumeSilence /> : <Volume />}
@@ -113,11 +114,11 @@ const VolumeControl = () => {
 };
 
 export function BarraDeReproductor() {
-  const { musicaActual, isPlaying, setIsPlaying } = usePlayerStore(
+  const { musicaActual, isPlaying, setIsPlaying, volume } = usePlayerStore(
     (state) => state
   );
   const audioRef = useRef();
-  const volumeRef = useRef(1);
+ 
 
   useEffect(() => {
     if (audioRef.current) {
@@ -125,13 +126,17 @@ export function BarraDeReproductor() {
     }
   }, [isPlaying]);
 
+useEffect(() =>{ 
+  audioRef.current.volume = volume
+}, [volume])
+
   useEffect(() => {
     const { song, playlist } = musicaActual || {};
     if (song) {
       const src = `/musica/${playlist?.id}/0${song.id}.mp3`;
       if (audioRef.current) {
         audioRef.current.src = src;
-        audioRef.current.volume = volumeRef.current;
+        audioRef.current.volume = volume;
         audioRef.current.play();
       }
     }

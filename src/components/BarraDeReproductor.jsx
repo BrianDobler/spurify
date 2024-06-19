@@ -91,13 +91,25 @@ const MusicaActual = ({ image, title, artists }) => {
 };
 
 const VolumeControl = () => {
-  
   const volume = usePlayerStore((state) => state.volume);
   const setVolume = usePlayerStore((state) => state.setVolume);
-  const previousVolumeRef = useRef(volume)
+  const previousVolumeRef = useRef(volume);
+
+  const isVolumeSilenced = volume < 0.1;
+  const handleClickVolumen = () => {
+    if (isVolumeSilenced) {
+      setVolume(previousVolumeRef.current);
+    } else {
+      previousVolumeRef.current = volume;
+      setVolume(0);
+    }
+  };
+
   return (
     <div className="flex justify-center  gap-x-2 text-white">
-      {volume < 0.1 ? <VolumeSilence /> : <Volume />}
+      <button className="hover:text-white text-gray-300" onClick={handleClickVolumen}>
+        {isVolumeSilenced ? <VolumeSilence /> : <Volume />}
+      </button>
       <Slider
         defaultValue={[100]}
         max={100}
@@ -118,7 +130,6 @@ export function BarraDeReproductor() {
     (state) => state
   );
   const audioRef = useRef();
- 
 
   useEffect(() => {
     if (audioRef.current) {
@@ -126,9 +137,9 @@ export function BarraDeReproductor() {
     }
   }, [isPlaying]);
 
-useEffect(() =>{ 
-  audioRef.current.volume = volume
-}, [volume])
+  useEffect(() => {
+    audioRef.current.volume = volume;
+  }, [volume]);
 
   useEffect(() => {
     const { song, playlist } = musicaActual || {};

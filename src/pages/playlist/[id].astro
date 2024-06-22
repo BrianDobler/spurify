@@ -1,8 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { allPlaylists, songs } from "../../libreria/datos";
-import PlaylistItemCard from "../../components/PlaylistItemCard.astro";
-import { setOriginalNode } from "typescript";
+import TablaMusica from "../../components/TablaMusica.astro";
 
 const { id } = Astro.params;
 
@@ -17,7 +16,7 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
     transition:name=`playlist ${id} box`
   >
     <header class="flex flex-row gap-8 px-6 text-white mt-12">
-      <picture class="h-32 w-32 flex-none mt-11">
+      <picture class="h-36 w-36 flex-none mt-11">
         <img
           src={playlist?.cover}
           alt={`Cover of ${playlist?.title}`}
@@ -27,7 +26,7 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
       </picture>
 
       <div class="flex flex-col justify-between">
-        <h2 class="flex flex-1  items-end mb-6 p-1">Lista</h2>
+        <h2 class="flex flex-1 items-end mb-6 p-1">Lista</h2>
         <div>
           <h1 class="title-clamp text-7xl font-bold block">
             {playlist?.title}
@@ -41,8 +40,8 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
             </div>
             <p class="mt-1">
               <span class="text-white flex-none">
-                23.664 me gusta . 29 Canciones
-.               </span> 2h 13 min
+                23.664 me gusta . 29 Canciones .
+              </span> 2h 13 min
             </p>
           </div>
         </div>
@@ -53,8 +52,7 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
         class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/90 -z-10"
       >
       </div>
-    </div>
+      <section class="p-1"><TablaMusica songs={playListSongs} /></section>
+     </div>
   </div>
-
-  <style></style>
 </Layout>

@@ -76,16 +76,61 @@ const MusicaActual = ({ image, title, artists }) => {
   return (
     <div
       className={`
-      flex items-center gap-5 relative overflow-hidden
+      flex items-center gap-5 py-2 relative overflow-hidden
       `}
     >
-      <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflows-hidden">
+      <picture className="w-16 h-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden">
         <img src={image} alt={title} />
       </picture>
       <div className="flex flex-col">
         <h3 className="font-semi text-sm block">{title}</h3>
         <span className="text-xs opacity-80">{artists?.join(", ")}</span>
       </div>
+    </div>
+  );
+};
+
+const SongControl = ({ audio }) => {
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    audio.current.addEventListener("timeupdate", handleTimeUpdate);
+    return () => {
+      audio.current.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, []);
+
+  const handleTimeUpdate = () => {
+    setCurrentTime(audio.current.currentTime);
+  };
+
+  const formatoTiempoCancion = tiempoCancion =>{
+    if (tiempoCancion == null) return `0:00`
+    
+      const segundos = Math.floor(tiempoCancion % 60).toString().padStart(2,'0');
+      const minutos = Math.floor(tiempoCancion / 60)
+      return `${minutos}:${segundos}`
+  }
+
+  const duration = audio?.current?.duration ?? 0
+
+  return (
+    <div className="flex flex-x gap-x-3 text-xs pt-2">
+      <span className="opacity-50 w-12 text-right">{formatoTiempoCancion(currentTime)}</span>
+      <Slider
+        
+        max={audio?.current?.duration ?? 0}
+        min={0}
+        value={[currentTime]}
+        className="w-[400px]"
+        onValueChange={(value) => {
+          const [newCurrentTime] = value
+         audio.current.currentTime = newCurrentTime  
+        }}
+      />
+      <span className="opacity-50 w-12">
+        {duration ? formatoTiempoCancion(duration) : null}
+        </span>
     </div>
   );
 };
@@ -107,13 +152,17 @@ const VolumeControl = () => {
 
   return (
     <div className="flex justify-center  gap-x-2 text-white">
-      <button className="hover:text-white text-gray-300" onClick={handleClickVolumen}>
+      <button
+        className="opacticy-70 hover:opacity-100 transition"
+        onClick={handleClickVolumen}
+      >
         {isVolumeSilenced ? <VolumeSilence /> : <Volume />}
       </button>
       <Slider
         defaultValue={[100]}
         max={100}
         min={0}
+        value={[volume * 100]}
         className="w-[95px]"
         onValueChange={(value) => {
           const [newVolume] = value;
@@ -158,18 +207,20 @@ export function BarraDeReproductor() {
   };
 
   return (
-    <div className="flex flex-row justify-between w-full px-4 z-50">
-      <div>
+    <div className="flex flex-row justify-between w-full px-2 z-50">
+      <div className="w-[200]">
         <MusicaActual {...musicaActual.song} />
       </div>
 
       <div className="grid place-content-center gap-4 flex-1">
-        <div className="flex justify-center">
+        <div className="flex justify-center flex-col items-center">
           <button className="bg-white rounded-full p-2" onClick={handleClick}>
             {isPlaying ? <Pausa /> : <Play />}
           </button>
+          <SongControl audio={audioRef} />
           <audio ref={audioRef} />
         </div>
+        
       </div>
 
       <div className="grid place-content-center">

@@ -21,11 +21,10 @@ import Saludo from "../components/MensajeSaludo.jsx";
           ))
         }
       </div>
-      <h3 class="text-white text-2xl mt-1 font-bold">
-        Lo mejor de cada artista
-      </h3>
 
-      <div class="flex flex-wrap mt-2  gap-4">
+      <h3 class="flex font-bold text-2xl">Lo mejor de cada artista</h3>
+
+      <div class="flex flex-wrap mt-2 gap-4">
         {
           playlists.map((playlists) => (
             <PlaylistItemCard playlist={playlists} />

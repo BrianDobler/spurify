@@ -2,8 +2,9 @@ import { useRef, useEffect, useState } from "react";
 import { usePlayerStore } from "../store/reproductorStore";
 import { Slider } from "./Slider";
 
-export const Pausa = () => (
+export const Pausa = ({ className }) => (
   <svg
+    className={className}
     data-encore-id="icon"
     height="16"
     width="16"
@@ -15,8 +16,9 @@ export const Pausa = () => (
   </svg>
 );
 
-export const Play = () => (
+export const Play = ({ className }) => (
   <svg
+    className={className}
     data-encore-id="icon"
     height="16"
     width="16"
@@ -25,6 +27,57 @@ export const Play = () => (
     viewBox="0 0 16 16"
   >
     <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+  </svg>
+);
+
+export const Expansor = () => (
+  <svg
+    height="16"
+    fill="currentColor"
+    width="16"
+    data-encore-id="icon"
+    role="img"
+    aria-hidden="true"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 
+    0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 
+    0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"
+    ></path>
+  </svg>
+);
+export const Siguiente = () => (
+  <svg
+    height="16"
+    fill="currentColor"
+    width="16"
+    data-encore-id="icon"
+    role="img"
+    aria-hidden="true"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 
+    1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
+    ></path>
+  </svg>
+);
+
+export const Anterior = () => (
+  <svg
+    height="16"
+    fill="currentColor"
+    width="16"
+    data-encore-id="icon"
+    role="img"
+    aria-hidden="true"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 
+    1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
+    ></path>
   </svg>
 );
 
@@ -104,33 +157,36 @@ const SongControl = ({ audio }) => {
     setCurrentTime(audio.current.currentTime);
   };
 
-  const formatoTiempoCancion = tiempoCancion =>{
-    if (tiempoCancion == null) return `0:00`
-    
-      const segundos = Math.floor(tiempoCancion % 60).toString().padStart(2,'0');
-      const minutos = Math.floor(tiempoCancion / 60)
-      return `${minutos}:${segundos}`
-  }
+  const formatoTiempoCancion = (tiempoCancion) => {
+    if (tiempoCancion == null) return `0:00`;
 
-  const duration = audio?.current?.duration ?? 0
+    const segundos = Math.floor(tiempoCancion % 60)
+      .toString()
+      .padStart(2, "0");
+    const minutos = Math.floor(tiempoCancion / 60);
+    return `${minutos}:${segundos}`;
+  };
+
+  const duration = audio?.current?.duration ?? 0;
 
   return (
     <div className="flex flex-x gap-x-3 text-xs pt-2">
-      <span className="opacity-50 w-12 text-right">{formatoTiempoCancion(currentTime)}</span>
+      <span className="opacity-50 w-12 text-right">
+        {formatoTiempoCancion(currentTime)}
+      </span>
       <Slider
-        
         max={audio?.current?.duration ?? 0}
         min={0}
         value={[currentTime]}
         className="w-[400px]"
         onValueChange={(value) => {
-          const [newCurrentTime] = value
-         audio.current.currentTime = newCurrentTime  
+          const [newCurrentTime] = value;
+          audio.current.currentTime = newCurrentTime;
         }}
       />
       <span className="opacity-50 w-12">
         {duration ? formatoTiempoCancion(duration) : null}
-        </span>
+      </span>
     </div>
   );
 };
@@ -153,7 +209,7 @@ const VolumeControl = () => {
   return (
     <div className="flex justify-center  gap-x-2 text-white">
       <button
-        className="opacticy-70 hover:opacity-100 transition"
+        className="opacticy-20 hover:opacity-100 transition"
         onClick={handleClickVolumen}
       >
         {isVolumeSilenced ? <VolumeSilence /> : <Volume />}
@@ -170,6 +226,9 @@ const VolumeControl = () => {
           setVolume(volumeValue);
         }}
       />
+      <button>
+        <Expansor />
+      </button>
     </div>
   );
 };
@@ -214,13 +273,20 @@ export function BarraDeReproductor() {
 
       <div className="grid place-content-center gap-4 flex-1">
         <div className="flex justify-center flex-col items-center">
-          <button className="bg-white rounded-full p-2" onClick={handleClick}>
-            {isPlaying ? <Pausa /> : <Play />}
-          </button>
+          <div className="text-white/70 px-2 flex justify-between gap-6">
+            <button className="hover:text-white">
+              <Anterior />
+            </button>
+            <button className="bg-white rounded-full p-2 hover:scale-105" onClick={handleClick}>
+              {isPlaying ? <Pausa /> : <Play />}
+            </button>
+            <button className="hover:text-white">
+              <Siguiente />
+            </button>
+          </div>
           <SongControl audio={audioRef} />
           <audio ref={audioRef} />
         </div>
-        
       </div>
 
       <div className="grid place-content-center">

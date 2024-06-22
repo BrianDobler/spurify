@@ -11,18 +11,20 @@ const { id, cover, title, artists, color } = playlist;
 const artistsString = artists.join(",");
 ---
 
-<article class="group relative hover:bg-zinc-700 hover:shadow-xl rounded-md transition-all
-  duration-300">
+<article
+  class="group relative hover:bg-zinc-700/30 hover:shadow-xl mb-2 rounded-md transition-all
+  duration-300"
+>
   <div
-    class=`absolute right-4 bottom-24 traslate-y-4 transition-all duration-500 opacity-0 
-    group-hover:traslate-y-0 group-hover:opacity-100 z-10`
+    class="absolute right-4 bottom-24 traslate-y-4 transition-all duration-5000 opacity-0 
+    group-hover:traslate-y-0 group-hover:opacity-100 z-10"
   >
-    <BotonPlayCard id={id} client:visible/>
+    <BotonPlayCard id={id} client:visible />
   </div>
   <a
     href={`/playlist/${id}`}
-    class="playlist-item transition-all duration-300 flex relative overflow-hidden flex-relative p-2 gap-6 pb-6
-     w-44 flex-col font-bold"
+    class="playlist-item transition-all duration-300 flex relative overflow-hidden flex-relative p-3 gap-6 pb-4
+     w-40 flex-col font-bold"
     transition:name=`playlist ${id} box`
   >
     <picture class="aspect-square w-full h-auto flex-none">

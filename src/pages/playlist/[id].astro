@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { allPlaylists, songs } from "../../libreria/datos";
 import TablaMusica from "../../components/TablaMusica.astro";
+import BotonPlayCard from "../../components/BotonPlayCard.jsx";
 
 const { id } = Astro.params;
 
@@ -12,7 +13,7 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
 <Layout title="Spurify">
   <div
     id="playlist-container"
-    class="relative flex flex-col h-full overflow-x-hidden bg-zinc-900"
+    class="relative flex flex-col h-full overflow-x-hidden bg-emerald-600"
     transition:name=`playlist ${id} box`
   >
     <header class="flex flex-row gap-8 px-6 text-white mt-12">
@@ -20,7 +21,7 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
         <img
           src={playlist?.cover}
           alt={`Cover of ${playlist?.title}`}
-          class="objet-cover w-full h-full shadow-lg rounded-sm"
+          class="objet-cover w-full h-full shadow-2xl shadow-zinc-900 rounded-sm"
           transition:name=`playlsit ${playlist?.id} image`
         />
       </picture>
@@ -38,16 +39,24 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
             <div transition:name=`playlist ${playlist?.id} artists`>
               <span>{playlist?.artists.join(",")}</span>
             </div>
+           
             <p class="mt-1">
-              <span class="text-white flex-none">
-                23.664 me gusta . 29 Canciones .
+              <span class="text-white">
+                23.664 me gusta  ⋅
+                {playListSongs.length} Canciones,
               </span> 2h 13 min
             </p>
+          
           </div>
         </div>
       </div>
     </header>
-    <div class="relative z-10 px-6 pt-10">
+
+    <div class="p-6 mt-4">
+       <BotonPlayCard  class="text-lg" id={id} client:load size="large"/>
+    </div>
+
+    <div class="relative z-10 px-6">
       <div
         class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/90 -z-10"
       >

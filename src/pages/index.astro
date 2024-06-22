@@ -9,14 +9,14 @@ import Saludo from "../components/MensajeSaludo.jsx";
 <Layout title="Spurify">
   <div
     id="playlist-container"
-    class="relative transition-all duration-1000 bg-yellow-900"
+    class="relative transition-all duration-1000 bg-yellow-800"
   >
     <div class="relative z-10 px-6 pt-10">
       <Saludo />
 
       <div class="flex flex-wrap mt-4 gap-4 pb-6">
         {
-          playlists.map((playlists) => (
+          playlists.slice(0,6).map((playlists) => (
             <PlaylistMasEscuchados playlist={playlists} />
           ))
         }
@@ -24,7 +24,7 @@ import Saludo from "../components/MensajeSaludo.jsx";
 
       <h3 class="flex font-bold text-2xl">Lo mejor de cada artista</h3>
 
-      <div class="flex flex-wrap mt-2 gap-4">
+      <div class="flex flex-wrap -mx-2 gap-1">
         {
           playlists.map((playlists) => (
             <PlaylistItemCard playlist={playlists} />

@@ -40,7 +40,7 @@ export const playlists: Playlist[] = [
   {
     id: '4',
     albumId: 4,
-    title: "This is Emilia Mernes",
+    title: "This is Emilia",
     color: colores.blue,
     cover:
       "https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO0hrh28-default.jpg",
@@ -151,7 +151,7 @@ export const songs: Song[] = [
     "id": 1,
     "albumId": 1,
     "title": "Conmigo te gusto",
-    "image": `https://i.scdn.co/image/ab67616d00001e0286e34d8695fa40e9eff493b5`,
+    "image": `https://i.scdn.co/image/ab67616d00001e02abbf55406c7731844081009d`,
     "artists": ["Leo Mattiolli"],
     "album": "Pechos Calientes",
     "duration": "3:05"
@@ -159,84 +159,58 @@ export const songs: Song[] = [
   {
     "id": 2,
     "albumId": 1,
-    "title": "Coffee Daze",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/products/VINYL_MORNING_COFFEE_4-min.png?v=1680526353`,
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "4:07"
+    "title": "Si te agarran las ganas",
+    "image": `https://i.scdn.co/image/ab67616d00001e02abbf55406c7731844081009d`,
+    "artists": ["Leo Mattiolli"],
+    "album": "Pechos Calientes",
+    "duration": "4:14"
   },
   {
     "id": 3,
     "albumId": 1,
-    "title": "Skyline Serenade",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/products/VINYL_MORNING_COFFEE_4-min.png?v=1680526353`,
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "3:50"
+    "title": "Tramposa",
+    "image": `https://i.scdn.co/image/ab67616d00001e02abbf55406c7731844081009d`,
+    "artists": ["Leo Mattiolli"],
+    "album": "Pechos Calientes",
+    "duration": "2:25"
   },
   {
     "id": 4,
     "albumId": 1,
-    "title": "Urban Echoes",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/products/VINYL_MORNING_COFFEE_4-min.png?v=1680526353`,
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "3:30"
+    "title": "Como podré",
+    "image": `https://i.scdn.co/image/ab67616d00001e02abbf55406c7731844081009d`,
+    "artists": ["Leo Mattiolli"],
+    "album": "Pechos Calientes",
+    "duration": "4:04"
   },
   {
     "id": 5,
     "albumId": 1,
     "title": "Night's End",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/products/VINYL_MORNING_COFFEE_4-min.png?v=1680526353`,
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "4:20"
+    "image": `https://i.scdn.co/image/ab67616d00001e02abbf55406c7731844081009d`,
+    "artists": ["Leo Mattiolli"],
+    "album": "Pechos Calientes",
+    "duration": "3:19"
   },
   {
     "id": 1,
     "albumId": 2,
-    "title": "Silent Rain",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187`,
-    "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
-    "duration": "3:40"
+    "title": "Music Sessions #52",
+    "image": `https://i.scdn.co/image/ab67616d000048511630dd349221a35ce03a0ccf`,
+    "artists": ["Bizzarrap", "Quevedo"],
+    "album": "Bzrp Music Sessions",
+    "duration": "3:23"
   },
   {
     "id": 2,
     "albumId": 2,
-    "title": "Lost Pages",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187`,
-    "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
-    "duration": "3:20"
+    "title": "Music Sessions #48",
+    "image": `https://i.scdn.co/image/ab67616d000048515bddce84bc8f03ac82c988d4`,
+    "artists": ["Bizzarrap", "Thiago PZK"],
+    "album": "Bzrp Music Sessions",
+    "duration": "2:46"
   },
-  {
-    "id": 3,
-    "albumId": 2,
-    "title": "Midnight Tales",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187`,
-    "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
-    "duration": "3:50"
-  },
-  {
-    "id": 4,
-    "albumId": 2,
-    "title": "City Lights",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187`,
-    "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
-    "duration": "3:30"
-  },
-  {
-    "id": 5,
-    "albumId": 2,
-    "title": "Night Drive",
-    "image": `https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187`,
-    "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
-    "duration": "4:20"
-  },
+  
   {
     "id": 1,
     "albumId": 3,
@@ -249,38 +223,38 @@ export const songs: Song[] = [
   {
     "id": 2,
     "albumId": 3,
-    "title": "Go go go!",
-    "image": `https://f4.bcbits.com/img/a1435058381_65.jpg`,
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "3:20"
+    "title": "Ojalá",
+    "image": `https://i.scdn.co/image/ab67616d00001e021acf0e285331b810c448878e`,
+    "artists": ["Luck Ra","Eugenia Quevedo"],
+    "album": "Ojalá",
+    "duration": "3:11"
   },
   {
     "id": 3,
     "albumId": 3,
-    "title": "Keep focus!",
-    "image": `https://f4.bcbits.com/img/a1435058381_65.jpg`,
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "2:40"
+    "title": "Como lo Hizo?",
+    "image": `https://i.scdn.co/image/ab67616d0000485168cd71dd41a38849f1d8c80f`,
+    "artists": ["Eugenia Quevedo","La banda de Carlitos"],
+    "album": "Como lo hizo",
+    "duration": "3:51"
   },
   {
     "id": 4,
     "albumId": 3,
-    "title": "JavaScript is the way",
-    "image": `https://f4.bcbits.com/img/a1435058381_65.jpg`,
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "3:10"
+    "title": "Cuarteto Sessions #3",
+    "image": `https://i.scdn.co/image/ab67616d00001e02ac99fa258212d9d0472d832c`,
+    "artists": ["Q´Lokura"],
+    "album": "Cuarteto Sessions #3",
+    "duration": "8:36"
   },
   {
     "id": 5,
     "albumId": 3,
     "title": "No more TypeScript for me",
-    "image": `https://f4.bcbits.com/img/a1435058381_65.jpg`,
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "2:10"
+    "image": `https://i.scdn.co/image/ab67616d0000485185a8c16ac53311f68e5dcddf`,
+    "artists": ["Q´Lokura"],
+    "album": "Que onda perdida",
+    "duration": "3:15"
   },
   {
     "id": 1,

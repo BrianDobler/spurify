@@ -10,33 +10,40 @@ const { songs } = Astro.props;
 
 <table class="table-auto text-left min-w-full divide-y divide-gray-500/20">
   <thead class="">
-    <tr class="text-gray-300 text-sm font-light">
+    <tr class="text-gray-400 text-sm">
       <th class="px-4 py-2">#</th>
       <th class="py-2">Título</th>
       <th class="px-4 py-2">Álbum</th>
-      <th class="px-4 py-2"><Reloj></th>
+      <th class="px-4 py-2"><Reloj /> </th>
     </tr>
+    <tbody>
+      <tr class="h-[10px]"></tr>
+      {
+        songs.map((song, index) => (
+          <tr class="text-gray-400 text-sm hover:bg-white/10 hover:text-white overflow-hidden transition duration-300">
+            <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-7">
+              {index + 1}
+            </td>
+            <td class="py-2 gap-3 flex">
+              <picture class="">
+                <img
+                  src={song.image}
+                  alt={song.title}
+                  class="w-10 rounded-md"
+                />
+              </picture>
+              <div class="flex flex-col">
+                <h3 class="text-white text-base">{song.title}</h3>
+                <span>{song.artists.join(", ")}</span>
+              </div>
+            </td>
+            <td class="px-4 py-2">{song.album}</td>
+            <td class="px-4 py-2  rounded-tr-lg rounded-br-lg">
+              {song.duration}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
   </thead>
-  <tbody>
-    <tr class="h-[10px]"></tr>
-    {
-      songs.map((song, index) => (
-        
-        <tr class="text-gray-300 text-sm font-light hover:bg-white/10 overflow-hidden">
-          <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg">{index + 1}</td>
-          <td class="py-2 gap-3 flex">
-            <picture class="">
-              <img src={song.image} alt={song.title} class="w-10 rounded-md" />
-            </picture>
-            <div class="flex flex-col">
-              <h3>{song.title}</h3>
-              <span>{song.artists.join(", ")}</span>
-            </div>
-          </td>
-          <td class="px-4 py-2">{song.album}</td>
-          <td class="px-4 py-2  rounded-tl-lg rounded-bl-lg">{song.duration}</td> 
-        </tr>
-      ))
-    }
-  </tbody>
 </table>

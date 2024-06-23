@@ -2,7 +2,7 @@ import { Pausa, Play } from "./BarraDeReproductor";
 import { usePlayerStore } from "../store/reproductorStore";
 import { playlists } from "../libreria/datos";
 
-export function BotonPlayCard({ id, size='small' }) {
+export function BotonPlayCard({ id, size='small', className }) {
   const { 
     musicaActual, 
     isPlaying, 

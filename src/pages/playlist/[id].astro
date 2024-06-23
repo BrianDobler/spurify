@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import { allPlaylists, songs } from "../../libreria/datos";
 import TablaMusica from "../../components/TablaMusica.astro";
 import BotonPlayCard from "../../components/BotonPlayCard.jsx";
+import NavAdelante from "../../iconos/NavAdelante.astro"
+import NavAtras from "../../iconos/NavAtras.astro"
 
 const { id } = Astro.params;
 
@@ -13,10 +15,23 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
 <Layout title="Spurify">
   <div
     id="playlist-container"
-    class="relative flex flex-col h-full overflow-x-hidden bg-emerald-600"
+    class="relative flex flex-col  overflow-x-hidden inset-0 bg-orange-600 bg-gradient-to-t
+     from-zinc-900 via-zinc-900"
     transition:name=`playlist ${id} box`
   >
-    <header class="flex flex-row gap-8 px-6 text-white mt-12">
+
+    <header class="flex flex-row">
+      <div class="px-6 mt-4 gap-2 flex justify-between">
+      <button class="rounded-full p-2 bg-black bg-opacity-70">
+        <NavAtras/>
+      </button>
+      <button class="rounded-full p-2 text-white/40 bg-black bg-opacity-40">
+        <NavAdelante/>
+      </button>
+     
+    </div>
+  </header>
+  <div class="flex flex-row gap-8 px-6 text-white mt-2">
       <picture class="h-36 w-36 flex-none mt-11">
         <img
           src={playlist?.cover}
@@ -50,18 +65,16 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
           </div>
         </div>
       </div>
-    </header>
+      </div>
+    
 
     <div class="p-6 mt-4">
        <BotonPlayCard  class="text-lg" id={id} client:load size="large"/>
     </div>
-
+ 
     <div class="relative z-10 px-6">
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/90 -z-10"
-      >
-      </div>
-      <section class="p-1"><TablaMusica songs={playListSongs} /></section>
+    </div>
+      <section class="p-1  font-medium "><TablaMusica songs={playListSongs} /></section>
      </div>
   </div>
 </Layout>

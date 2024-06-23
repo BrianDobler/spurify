@@ -137,7 +137,7 @@ const MusicaActual = ({ image, title, artists }) => {
       </picture>
       <div className="flex flex-col">
         <h3 className="font-semi text-sm block">{title}</h3>
-        <span className="text-xs opacity-80">{artists?.join(", ")}</span>
+        <span className="text-xs opacity-50 font-medium">{artists?.join(", ")}</span>
       </div>
     </div>
   );
@@ -207,7 +207,7 @@ const VolumeControl = () => {
   };
 
   return (
-    <div className="flex justify-center  gap-x-2 text-white">
+    <div className="flex justify-center flex-end gap-x-2  text-white">
       <button
         className="opacticy-20 hover:opacity-100 transition"
         onClick={handleClickVolumen}
@@ -267,11 +267,11 @@ export function BarraDeReproductor() {
 
   return (
     <div className="flex flex-row justify-between w-full px-2 z-50">
-      <div className="w-[200]">
+      <div className="w-[350px] font-semibold">
         <MusicaActual {...musicaActual.song} />
       </div>
 
-      <div className="grid place-content-center gap-4 flex-1">
+      <div className="flex place-content-center gap-4 flex-1">
         <div className="flex justify-center flex-col items-center">
           <div className="text-white/70 px-2 flex justify-between gap-6">
             <button className="hover:text-white">
@@ -289,7 +289,7 @@ export function BarraDeReproductor() {
         </div>
       </div>
 
-      <div className="grid place-content-center">
+      <div className="w-[350px] grid place-content-center">
         <VolumeControl />
       </div>
     </div>

@@ -47,6 +47,7 @@ export const Expansor = () => (
     ></path>
   </svg>
 );
+
 export const Siguiente = () => (
   <svg
     height="16"

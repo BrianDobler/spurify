@@ -4,7 +4,7 @@ import { allPlaylists, songs } from "../../libreria/datos";
 import TablaMusica from "../../components/TablaMusica.astro";
 import BotonPlayCard from "../../components/BotonPlayCard.jsx";
 import NavAdelante from "../../iconos/NavAdelante.astro"
-import NavAtras from "../../iconos/NavAtras.astro"
+import {NavegacionAtras } from "../../components/Navegacion.jsx"
 
 const { id } = Astro.params;
 
@@ -22,9 +22,8 @@ const playListSongs = songs.filter((song) => song.albumId == playlist?.albumId);
 
     <header class="flex flex-row">
       <div class="px-6 mt-4 gap-2 flex justify-between">
-      <button class="rounded-full p-2 bg-black bg-opacity-70">
-        <NavAtras/>
-      </button>
+        <NavegacionAtras client:load/>
+      
       <button class="rounded-full p-2 text-white/40 bg-black bg-opacity-40">
         <NavAdelante/>
       </button>

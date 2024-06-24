@@ -11,11 +11,11 @@ const { id, cover, title, artists, color } = playlist;
 const artistsString = artists.join(",");
 ---
 <article
-  class="group relative hover:bg-zinc-300/50 hover:shadow-sm px-1 mb-2 rounded-md transition-all
+  class="group relative hover:shadow-sm px-1 mb-2 rounded-md transition-all
   duration-300 flex items-center"
 >
   <div
-    class="absolute right-2 transition-all duration-300 opacity-0 
+    class="absolute right-3 transition-all duration-300 opacity-0 
     group-hover:traslate-y-0 group-hover:opacity-100 z-10"
   >
     <BotonPlayCard id={id} client:visible className="" size="small"/>

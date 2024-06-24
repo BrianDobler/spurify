@@ -32,7 +32,8 @@ import { playlists } from "../libreria/datos";
       </SideMenuItem>
     </ul>
     {
-        playlists.map(playlist => <SideMenuCard playlist={playlist} />)
+        playlists.slice(6,).map((playlist) => (<SideMenuCard playlist={playlist} />))
     }
+     
   </div>
 </nav>

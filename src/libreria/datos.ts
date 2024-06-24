@@ -186,7 +186,7 @@ export const songs: Song[] = [
   {
     "id": 5,
     "albumId": 1,
-    "title": "Night's End",
+    "title": "Después de ti",
     "image": `https://i.scdn.co/image/ab67616d00001e02abbf55406c7731844081009d`,
     "artists": ["Leo Mattiolli"],
     "album": "Pechos Calientes",
@@ -250,7 +250,7 @@ export const songs: Song[] = [
   {
     "id": 5,
     "albumId": 3,
-    "title": "No more TypeScript for me",
+    "title": "Que onda perdida",
     "image": `https://i.scdn.co/image/ab67616d0000485185a8c16ac53311f68e5dcddf`,
     "artists": ["Q´Lokura"],
     "album": "Que onda perdida",
@@ -264,86 +264,5 @@ export const songs: Song[] = [
     "artists": ["Emilia Mernes"],
     "album": "mp3",
     "duration": "2:40"
-  },
-  {
-    "id": 2,
-    "albumId": 4,
-    "title": "Go go go!",
-    "image": "https://f4.bcbits.com/img/a1962013209_16.jpg",
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "3:20"
-  },
-  {
-    "id": 3,
-    "albumId": 4,
-    "title": "Keep focus!",
-    "image": "https://f4.bcbits.com/img/a1962013209_16.jpg",
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "2:40"
-  },
-  {
-    "id": 4,
-    "albumId": 4,
-    "title": "JavaScript is the way",
-    "image": "https://f4.bcbits.com/img/a1962013209_16.jpg",
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "3:10"
-  },
-  {
-    "id": 5,
-    "albumId": 4,
-    "title": "No more TypeScript for me",
-    "image": "https://f4.bcbits.com/img/a1962013209_16.jpg",
-    "artists": ["Tenno"],
-    "album": "Study Session",
-    "duration": "2:10"
-  },
-  {
-    "id": 1,
-    "albumId": 5,
-    "title": "Moonlit Walk",
-    "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "3:12"
-  },
-  {
-    "id": 2,
-    "albumId": 5,
-    "title": "Coffee Daze",
-    "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "4:07"
-  },
-  {
-    "id": 3,
-    "albumId": 5,
-    "title": "Skyline Serenade",
-    "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "3:50"
-  },
-  {
-    "id": 4,
-    "albumId": 5,
-    "title": "Urban Echoes",
-    "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "3:30"
-  },
-  {
-    "id": 5,
-    "albumId": 5,
-    "title": "Night's End",
-    "image": "https://f4.bcbits.com/img/a2793859494_16.jpg",
-    "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
-    "duration": "4:20"
-  },
+  }
 ]

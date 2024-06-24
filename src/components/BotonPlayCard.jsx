@@ -29,8 +29,9 @@ export function BotonPlayCard({ id, size='small', className }) {
         })
     }
     
-const claseIcono = size == 'small' ? 'w-4 h-4' : 'w-5 h-5'
-  
+const claseIcono = size == 'small' ? 'w-2 h-2' :
+                   size == 'medium' ? 'w-4 h-4' : 'w-5 h-5';
+ 
 
   return (
     <button
@@ -38,7 +39,7 @@ const claseIcono = size == 'small' ? 'w-4 h-4' : 'w-5 h-5'
       className="card-play-button rounded-full bg-green-500 p-4 hover:scale-105 transition
        shadow-zinc-900/80 shadow-lg"
     >
-      {isPlayingPlaylist ? <Pausa className={claseIcono} /> : <Play className={claseIcono}  />}
+      {isPlayingPlaylist ? <Pausa className={claseIcono} /> : <Play className={claseIcono}/>}
     </button>
   );
 }

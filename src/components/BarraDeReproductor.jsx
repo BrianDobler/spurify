@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { usePlayerStore } from "../store/reproductorStore";
 import { Slider } from "./Slider";
 
-export const Pausa = ({ className }) => (
+export const Pausa = ({ className,size }) => (
   <svg
     className={className}
     data-encore-id="icon"
@@ -208,9 +208,9 @@ const VolumeControl = () => {
   };
 
   return (
-    <div className="flex justify-center flex-end gap-x-2  text-white">
+    <div className="flex justify-center flex-end gap-x-2 text-white">
       <button
-        className="opacticy-20 hover:opacity-100 transition"
+        className="opacticy-20 hover:opacity-100 transition duration"
         onClick={handleClickVolumen}
       >
         {isVolumeSilenced ? <VolumeSilence /> : <Volume />}
@@ -268,7 +268,7 @@ export function BarraDeReproductor() {
 
   return (
     <div className="flex flex-row justify-between w-full px-2 z-50">
-      <div className="w-[350px] font-semibold">
+      <div className="w-[300px] font-semibold">
         <MusicaActual {...musicaActual.song} />
       </div>
 
@@ -290,7 +290,7 @@ export function BarraDeReproductor() {
         </div>
       </div>
 
-      <div className="w-[350px] grid place-content-center">
+      <div className="w-[350px] grid align-content-center justify-items-end px-5">
         <VolumeControl />
       </div>
     </div>

@@ -1,19 +1,26 @@
 import React from 'react';
 
-function Saludo() {
+function HoraActualLocal() {
   const tiempoActual = new Date();
-  const horaActual = tiempoActual.getHours();
+  const horaOffSet = tiempoActual.getTimezoneOffset() * 60000; 
+
+  return new Date(tiempoActual.getTime() - horaOffSet).getHours();
+}
+
+function Saludo() {
+  
+  const horaActualLocal = HoraActualLocal();
 
   let saludo = '';
 
-  if (horaActual < 12) {
+  if (horaActualLocal < 12) {
     saludo = '¡Buenos Días! 🌞';
-  } else if (horaActual < 18) {
+  } else if (horaActualLocal < 18) {
     saludo = '¡Buenas Tardes! 🌇';
   } else {
     saludo = '¡Buenas Noches! 🌙';
   }
-
+  console.log(saludo);
   return (
     <h1 className="text-white text-4xl font-bold">
       {saludo}

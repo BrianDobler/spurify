@@ -13,9 +13,9 @@ function Saludo() {
 
   let saludo = '';
 
-  if (horaActualLocal < 12) {
+  if (horaActualLocal < 15) {
     saludo = '¡Buenos Días! 🌞';
-  } else if (horaActualLocal < 18) {
+  } else if (horaActualLocal < 20) {
     saludo = '¡Buenas Tardes! 🌇';
   } else {
     saludo = '¡Buenas Noches! 🌙';

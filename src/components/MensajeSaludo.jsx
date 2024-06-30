@@ -20,7 +20,6 @@ function Saludo() {
   } else {
     saludo = '¡Buenas Noches! 🌙';
   }
-  console.log(saludo);
   return (
     <h1 className="text-white text-4xl font-bold">
       {saludo}
